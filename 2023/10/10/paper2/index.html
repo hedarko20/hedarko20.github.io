@@ -174,17 +174,17 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #03a9f4">论文</a>
+                <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ff7d73">阅读</a>
+                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E4%BA%8B%E5%AE%9E%E9%AA%8C%E8%AF%81/" style="color: #00a596">事实验证</a>
+                <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #ff7d73">假新闻检测</a>
             </span>
             
         </span>
@@ -203,7 +203,11 @@
 <li>对于图片，先将图片调整大小到224*224，然后再分成z^2^个patch,reshape成序列送入ResNet34和ViT中去提取特征，最后用一个双层的MLP将特征映射到d维。</li>
 </ul>
 <h2 id="跨模态实体生成"><a href="#跨模态实体生成" class="headerlink" title="跨模态实体生成"></a>跨模态实体生成</h2><p>先将上个模块得到的文本和图片向量放到一个多模态图中，图和文本节点之间默认连接，文本之间通过Spacy建立连接，图片之间默认临近的patch是连接的。然后用GCN计算节点的Embedding，计算完了以后计算文本，图片，文本与文本之间，图片与图片之间，文本与图片之间共五种类型的多模态实体表示，维度分别为O<del>t</del>∈R^m<em>d^，O<del>v</del>∈R^r</em>d^，O<del>t,t</del>∈R^(m*m)<em>d^，O<del>v,v</del>∈R^(r</em>r)<em>d^，O<del>t,v</del>∈R^(m</em>r)*d^。最后通过5个mlp分别挑选出5*k个最重要的向量作为下一个模块的输入。</p>
-<h2 id="子句生成"><a href="#子句生成" class="headerlink" title="子句生成"></a>子句生成</h2><h2 id="子句评估"><a href="#子句评估" class="headerlink" title="子句评估"></a>子句评估</h2><h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1>
+<h2 id="子句生成"><a href="#子句生成" class="headerlink" title="子句生成"></a>子句生成</h2><p>用一个可学习的矩阵和一个预定义好的实体-标签矩阵来计算元谓词的特征表示$$\mathbf{B}_t&#x3D;\text{sparsemax}([\hat{\mathbf{O}}_t,\mathbf{y}]\mathbf{W}_t^e\mathbf{C}_t^\top)\mathbf{C}_t.$$<br>对两个特征矩阵进行加权得到总体的文本和图片表示<br>$$\mathbf{t}_T&#x3D;\mathbf{T}^\top\text{softmax}(\mathbf{T}\mathbf{W}_T)$$<br>$$\mathbf{v}<em>I&#x3D;\mathbf{V}^\top\text{softmax}(\mathbf{V}\mathbf{W}<em>I)$$<br>用以下公式计算出挑选每个元谓词的概率，取前$5k\times\beta $个元谓词进行评估<br>$$\begin{aligned}\mathbf{S}</em>{T,I}&amp;&#x3D;\text{sparsemax}(\mathbf{B}\mathbf{W}</em>{T,I}[\mathbf{t}_T,\mathbf{v}_I]),\\mathbf{S}_y&amp;&#x3D;\text{sparsemax}([\mathbf{B},\mathbf{y},\mathbf{B}-\mathbf{y},\mathbf{B}\circ\mathbf{y}]\mathbf{W}<em>y)\end{aligned}$$<br>$$\mathbf{S}&#x3D;\mathrm{sparsemax}(\mathbf{S}</em>{T,I}\circ\mathbf{S}_y)$$</p>
+<h2 id="子句评估"><a href="#子句评估" class="headerlink" title="子句评估"></a>子句评估</h2><p>用$\mu(b_t(t,y))&#x3D;\text{sigmoid}([\mathbf{b}_t,\mathbf{p},\mathbf{b}_t-\mathbf{p},\mathbf{b}_t\circ\mathbf{p}]\mathbf{W}_\mu)$来计算元谓词的真值，其中$\mathbf{p}&#x3D;\mathbf{o}_t\circ\mathbf{y}$<br>GCN中每层的输出合取（∧ ），层和层之间析取（∨），计算最后的标签真值，取较大的真值作为最终的标签。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231010144917.png" alt="这是LogicDM模型图"></p>
+<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>用图卷积网络来进行实体特征融合，融合完的实体挑选，送入计算真值，再用某种方法计算总体的真值。还是有点逻辑思想在里面的。</p>
+
     </div>
     
     
