@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | Hedarko小窝</title>
+    <title>Tags: 模板 | Hedarko小窝</title>
     <meta name="author" content="Hedarko" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -38,8 +38,6 @@
 <script src="/js/lib/preview.js"></script>
 
 
-
-<script src="/js/lib/search.js"></script>
 
 
 
@@ -151,151 +149,97 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            
-<div id="archives">
+            <div id="archives">
     
-    <input id="search-bar" class="input" placeholder="搜索" v-model="rawSearch" />
-    
-    <div id="timeline-wrap" ref="timeline">
+    <div class="categories-tags">
         
-        <div class="timeline" data-title="helloworld">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/8</div>
-                <a href="/2023/10/08/HelloWorld/">
-                    <h3>HelloWorld</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
-        <div class="timeline" data-title="hexo教程">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/8</div>
-                <a href="/2023/10/08/Hexo%E6%95%99%E7%A8%8B/">
-                    <h3>Hexo教程</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/Hexo/" style="color: #00a596">Hexo</a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
         
-        <div class="timeline" data-title="muser:amulti-stepevidenceretrievalenhancementframeworkforfakenewsdetection阅读笔记">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/9</div>
-                <a href="/2023/10/09/paper1/">
-                    <h3>MUSER: A MUlti-Step Evidence Retrieval Enhancement Framework for Fake News Detection 阅读笔记</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
-                        </span>
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ff7d73">阅读</a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
+        <span>
+            <a href="/tags/Hexo/" style="background: #00bcd4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                Hexo
+            </a>
+        </span>
         
-        <div class="timeline" data-title="interpretablemultimodalmisinformationdetectionwithlogicreasoning阅读笔记">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/10</div>
-                <a href="/2023/10/10/paper2/">
-                    <h3>Interpretable Multimodal Misinformation Detection with Logic Reasoning 阅读笔记</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00a596">论文</a>
-                        </span>
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
-                        </span>
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E4%BA%8B%E5%AE%9E%E9%AA%8C%E8%AF%81/" style="color: #03a9f4">事实验证</a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
         
-        <div class="timeline" data-title="paper_pattern">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/10</div>
-                <a href="/2023/10/10/paper-pattern/">
-                    <h3>paper_pattern</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="color: #00a596">模板</a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
+        
+        <span>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="background: #03a9f4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                论文
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="background: #00bcd4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                阅读
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                模板
+            </a>
+        </span>
+        
+        
+        
+        
+        
+        <span>
+            <a href="/tags/%E4%BA%8B%E5%AE%9E%E9%AA%8C%E8%AF%81/" style="background: #ffa2c4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                事实验证
+            </a>
+        </span>
+        
         
     </div>
+    
+    <div class="timeline">
+        <div class="timeline-tail"></div>
+        <div class="timeline-content">
+            <div class="item-time">2023/10/10</div>
+            <a href="/2023/10/10/paper-pattern/">
+                <h3>paper_pattern</h3>
+            </a>
+            <div class="info">
+                
+                
+                <span class="tags">
+                    <span class="icon">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </span>
+                    
+                    
+                    <span class="tag">
+                        
+                        <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="color: #ff7d73">模板</a>
+                    </span>
+                    
+                </span>
+                
+            </div>
+        </div>
+    </div>
+    
 </div>
 
             <footer id="footer">
