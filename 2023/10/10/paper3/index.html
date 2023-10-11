@@ -187,13 +187,18 @@
     </div>
     
     <div class="content" v-pre>
-        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>提高证据检索的自动可解释事实查证</p>
+        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p><a target="_blank" rel="noopener" href="https://github.com/algoprog/Quin">提高证据检索的自动可解释事实查证 (Quin)</a></p>
 <h1 id="作者和出处"><a href="#作者和出处" class="headerlink" title="作者和出处"></a>作者和出处</h1><p>Institute of Data Science, National University of Singapore（新加坡国立大学数据科学研究所），NUS Centre for Trusted Internet and Community（新加坡国立大学可信互联网与社区中心），<br>School of Computing, National University of Singapore（School of Computing, National University of Singapore）</p>
 <span id="more"></span>
 
 <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>大规模的自动化事实核查是一项具有挑战性的任务，直到最近才系统地进行研究。大规模的嘈杂文档集合（如网络或新闻文章）使得这项任务变得更加困难。在本文中，我们描述了一个名为 Quin+ 的三阶段自动化事实核查系统的组件。我们证明了在嘈杂的环境中，使用密集的段落表示可以提高证据召回。我们尝试了两种句子选择方法：一种是使用密集检索模型的嵌入式选择，另一种是上下文感知选择的序列标注方法。Quin+ 能够使用大规模语料库或网络搜索结果来验证开放领域中的主张。</p>
 <h1 id="引言和结论"><a href="#引言和结论" class="headerlink" title="引言和结论"></a>引言和结论</h1><p>在这项工作中，我们介绍了一个三阶段的事实核查系统。我们证明了密集检索模型在检索用于事实核查的段落时，可以提高召回率。我们还提出了两种选择相关句子的方案：一种基于嵌入的方法和一种用于提高主张验证准确性的序列标注模型。Quin+ 在我们的扩展版 Factual-NLI+ 语料库中取得了有希望的结果，并且还可以使用网络搜索结果来验证开放领域的主张。我们的系统的源代码是公开的。尽管我们的系统能够成功验证多个开放领域主张，但它也存在一些局限性。Quin+ 无法有效地验证需要检索多个证据的多跳主张。对于多跳主张的验证，可以利用多跳问答启发的方法。我们认为，在大规模事实核查系统的未来发展中，需要引入一个新的基准。目前可用的数据集，包括 Factual-NLI+，不适合评估使用多个来源验证主张。</p>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="句子选择模块"><a href="#句子选择模块" class="headerlink" title="句子选择模块"></a>句子选择模块</h2><ul>
+<li>基于嵌入的选择方法。<br>QR-BERT编码，计算宣称和句子的相关分数，取相关分数大于阈值的取回。</li>
+<li>基于上下文感知的选择方法。<br>将Claim和Evidence送入RoBERTa-large进行标记，让BERT输出BIO标记以挑选目标语句。<br><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231011085736.png" alt="这是基于上下文感知方法的选择模型的图片"></li>
+</ul>
+<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>MUSER里面的句子选择用的就是这篇文章里的，顺便一提，这个模型名字是有点东西的。<br><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231011090601.png" alt="这是Quin的照片"></p>
+
     </div>
     
     
