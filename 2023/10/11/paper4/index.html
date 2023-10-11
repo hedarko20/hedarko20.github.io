@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: 假新闻检测 | Hedarko小窝</title>
+    <title>paper4 | Hedarko小窝</title>
     <meta name="author" content="Hedarko" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -36,6 +36,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -149,132 +153,60 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/Hexo/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                Hexo
-            </a>
+            <div class="article">
+    <div>
+        <h1>paper4</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/11
         </span>
         
         
-        
-        <span>
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                论文
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00a596">阅读</a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                阅读
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                假新闻检测
-            </a>
-        </span>
-        
-        
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/10/10</div>
-            <a href="/2023/10/10/paper2/">
-                <h3>Interpretable Multimodal Misinformation Detection with Logic Reasoning 阅读笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #03a9f4">论文</a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #00a596">假新闻检测</a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>基于语义层次图的推理进行事实查证</p>
+<h1 id="作者和出处"><a href="#作者和出处" class="headerlink" title="作者和出处"></a>作者和出处</h1><p>The School of Data and Computer Science, Sun Yat-sen University（中山大学数据与计算机科学学院），Guangdong Key Laboratory of Big Data Analysis and Processing, Guangzhou, P.R.China（广东省大数据分析处理重点实验室，广州），Microsoft Research  MOE Key Lab of Computational Linguistics, Peking University（北京大学微软计算语言学教育部重点实验室）</p>
+<span id="more"></span>
+
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>事实核查是一项具有挑战性的任务，因为验证一个主张的真实性需要对多个可检索的证据进行推理。在这项工作中，我们提出了一种适合对证据的语义层次结构进行推理的方法。与大多数先前的工作不同，这些工作通常使用字符串拼接或融合孤立证据句子的特征来表示证据句子，我们的方法操作的是通过语义角色标注获得的证据的丰富语义结构。我们提出了两种机制来利用证据结构，同时利用预训练模型（如 BERT、GPT 或 XLNet）的进展。具体来说，以 XLNet 为基础，我们首先利用图结构重新定义单词的相对距离，直观上，语义相关的单词应该具有较短的距离。然后，我们采用图卷积网络和图注意力网络从图中的相邻节点传播和聚合信息。我们在事实核查的基准数据集 FEVER 上评估我们的系统，并发现丰富的结构信息是有帮助的，而且我们的基于图的机制都提高了准确性。我们的模型在官方评估指标，即主张验证准确性和 FEVER 得分方面都是最先进的系统。</p>
+<h1 id="引言和结论"><a href="#引言和结论" class="headerlink" title="引言和结论"></a>引言和结论</h1><p>我们提出了一种基于图的推理方法进行事实核查。我们的系统使用语义角色标注（SRL）来构建图，并提出了两种基于图的表示学习机制。结果证实，两种基于图的机制都提高了准确性，我们的最终系统在 FEVER 数据集上实现了最先进的性能</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="句子级别证据选择"><a href="#句子级别证据选择" class="headerlink" title="句子级别证据选择"></a>句子级别证据选择</h2><p>该模块以一个Claim和所有文档取回的句子作为输入，返回前k个最相关的句子。<br>用第i个向量的CLS表式$ce_i&#x3D;[Claim,SEP,Evidence_i,SEP,CLS]$送入一个MLP中计算最终的得分，然后取前5个。</p>
+<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>不开源毛用没有</p>
+
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/10/9</div>
-            <a href="/2023/10/09/paper1/">
-                <h3>MUSER: A MUlti-Step Evidence Retrieval Enhancement Framework for Fake News Detection 阅读笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #03a9f4">假新闻检测</a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
     </div>
+    
+    
+    
     
 </div>
 
@@ -306,6 +238,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="hedarko20/hedarko20.github.io"
+    data-repo-id="R_kgDOKdaIlg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOKdaIls4CZ9QH"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>
