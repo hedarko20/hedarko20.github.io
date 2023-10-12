@@ -179,7 +179,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
+                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
             </span>
             
         </span>
@@ -193,7 +193,13 @@
 
 <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>虚假新闻检测对于维护在线新闻生态系统的健康至关重要。然而，几乎没有现有研究考虑实际中由新闻数据的快速演变引起的时间偏移问题，导致在训练过去数据并在未来数据上进行测试时性能大幅下降。在本文中，我们观察到同一主题的新闻事件的出现可能随时间显示出明显的模式，并认为这些模式可以帮助选择训练实例，使模型更好地适应未来数据。具体来说，我们设计了一个有效的框架 FTT（预测时间趋势），可以预测新闻数据的时间分布模式，然后引导检测器快速适应未来的分布。在实际的时间分割数据集上的实验证明了我们所提出的框架的优越性。代码可在 <a target="_blank" rel="noopener" href="https://github.com/ICTMCG/FTTACL23">https://github.com/ICTMCG/FTTACL23</a> 获得。</p>
 <h1 id="引言和结论"><a href="#引言和结论" class="headerlink" title="引言和结论"></a>引言和结论</h1><p>问题：据我们所知，我们是首批将话题级别时间模式的特征融入虚假新闻检测的研究者。方法：我们提出了一个预测时间趋势（FTT）的框架，以解决虚假新闻检测中的时间泛化问题。工业价值：我们通过实验证明，我们的 FTT 在保持与任何基于神经网络的虚假新闻检测器的良好兼容性的同时，总体上优于五种比较方法。</p>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="新闻表示"><a href="#新闻表示" class="headerlink" title="新闻表示"></a>新闻表示</h2><p>用Sentence-BERT对新闻进行表示$x_i\in\mathbb{R}^{768}$。</p>
+<h2 id="主题发现"><a href="#主题发现" class="headerlink" title="主题发现"></a>主题发现</h2><p>将第一步得到的新闻表示进行单次遍历增量聚类，以将新闻按主题分组。<br>首先设置阈值，当新的新闻来的时候，计算它与现有聚类的余弦相似度，根据相似度来决定是将新闻并入某个类还是增设新类。</p>
+<h2 id="时间分布建模与预测"><a href="#时间分布建模与预测" class="headerlink" title="时间分布建模与预测"></a>时间分布建模与预测</h2><p>进行建模之前剔除个数太少的聚类，因为个数太小的聚类太小而不能呈现显著的时间模式。<br>统计每个主题每个季度的新闻项，用可分解时间序列模型对时间分布进行建模，用时间序列预测工具Prophet进行预测。将两个趋势函数进行相加$p_i(f_{i,Q})&#x3D;g_i(f_{i,Q})+s_i(f_{i,Q})$。其中前一个趋势函数是总体趋势，后一个趋势函数是季节趋势。</p>
+<h2 id="基于预测的调整"><a href="#基于预测的调整" class="headerlink" title="基于预测的调整"></a>基于预测的调整</h2><p>删除掉预测结果中MAPE（绝对平均误差过大的主题），然后把算得的预测值进行归一化$w_{i,Q}&#x3D;\text{Bound}\left(\frac{p_i(f_{i,Q})}{\sum_{i\in D_{Q’}}p_i(f_{i,Q})}\right)$，Bound函数会将结果控制在一个上下限之间，以避免权重的不稳定。不在集合里的新闻主题权重默认为1。</p>
+<h2 id="如何作用于假新闻检测"><a href="#如何作用于假新闻检测" class="headerlink" title="如何作用于假新闻检测"></a>如何作用于假新闻检测</h2><p>正常预测，不过计算损失时加上调整过后的权重即可$\mathcal{L}&#x3D;-\frac1N\sum_{i&#x3D;1}^Nw_{i,Q}\text{CrossEntropy}(y_i,\hat{y_i})$。</p>
+<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>聚类算权重的思想感觉挺有用的。</p>
+
     </div>
     
     
