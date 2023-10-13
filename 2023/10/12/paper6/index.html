@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: Hexo | Hedarko小窝</title>
+    <title>A Survey on Automated Fact-Checking 阅读报告 | Hedarko小窝</title>
     <meta name="author" content="Hedarko" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -36,6 +36,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -149,85 +153,63 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/Hexo/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                Hexo
-            </a>
+            <div class="article">
+    <div>
+        <h1>A Survey on Automated Fact-Checking 阅读报告</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/12
         </span>
         
         
-        
-        
-        
-        <span>
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                论文
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                阅读
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                假新闻检测
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/10/8</div>
-            <a href="/2023/10/08/Hexo%E6%95%99%E7%A8%8B/">
-                <h3>Hexo教程</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/Hexo/" style="color: #00bcd4">Hexo</a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>自动事实核查研究综述</p>
+<h1 id="作者和出处"><a href="#作者和出处" class="headerlink" title="作者和出处"></a>作者和出处</h1><p>Department of Computer Science and Technology University of Cambridge, UK（英国剑桥大学计算机科学与技术系）</p>
+<span id="more"></span>
+
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>事实核查在现代媒体生态系统中变得日益重要，因为信息和虚假信息在这种环境中的传播速度都非常快。因此，研究人员一直在探索如何自动化事实核查，使用自然语言处理、机器学习、知识表示和数据库等技术来自动预测断言的真实性。在本文中，我们概述了源自自然语言处理的自动化事实核查，并讨论了其与相关任务和学科的联系。在这个过程中，我们介绍了现有的数据集和模型，旨在统一各种定义并确定共同的概念。最后，我们强调了未来研究的挑战。</p>
+<h1 id="引言和结论"><a href="#引言和结论" class="headerlink" title="引言和结论"></a>引言和结论</h1><p>在本次调查中，我们全面且及时地概述了自动化事实核查，将先前研究中发展的各种定义统一到一个共同的框架中。我们首先定义了我们事实核查框架的三个阶段——主张检测、证据检索和主张验证，后者包括判决预测和证据生成。然后，我们概述了现有的数据集和建模策略，对这些进行分类，并将它们与我们的框架进行上下文关联。最后，我们讨论了已经解决的关键研究挑战，并为我们认为应该由未来研究解决的挑战提供方向。我们伴随着调查的一个存储库，其中列出了我们在调查中提到的资源。</p>
+<h1 id="任务定义"><a href="#任务定义" class="headerlink" title="任务定义"></a>任务定义</h1><p><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231013083041.png" alt="这是自动证据核查的框架图"><br>自动证据核查分为三个部分：宣称检测，证据取回和宣称验证。其中后两个部分一般合称为事实验证。</p>
+<h2 id="宣称检测"><a href="#宣称检测" class="headerlink" title="宣称检测"></a>宣称检测</h2><p>宣称检测是挑选句子进行后续验证。检测依赖于可检查性的概念，如挑出的句子应该是公众有兴趣了解真相的宣称，或者挑出的句子可能是谣言。这种检查可能是主观的。比如，对于新冠的虚假信息，不同群体的重视程度不同。此外，宣称检测的价值随时间的推移而变化。例如，关于 2021 年新冠病毒（COVID-19）的错误信息对社会的影响，要大于关于西班牙流感（Spanish flu）的错误信息。再如，边缘化群体的主张可能受到比来自多数群体的主张更多的审查。宣称检测也可以被定义为宣称是否对世界做出了可检查的断言。例如，句子“我今天早上 7 点醒来”无法核实，因为无法收集到适当的证据；句子“立体主义艺术很美”也无法核实，因为它是一个主观的陈述。</p>
+<h2 id="证据取回"><a href="#证据取回" class="headerlink" title="证据取回"></a>证据取回</h2><p>证据取回的目的是找到超出宣称范围的信息以表明宣称的真实性。证据除了能进行核查外，也能作为判决理由来说服用户。在证据取回中，一个根本问题是不是所有可用的信息都是可信的，所以大多数事实核查方法都隐含的假定可以访问受信的信息源，如百科全书或者由搜索引擎提供并核查的结果。</p>
+<h2 id="判决预测"><a href="#判决预测" class="headerlink" title="判决预测"></a>判决预测</h2><p>通过给定的宣称和检索回来的证据，判决预测试图确定宣称的正确性。最简单的是进行二分类（支持&#x2F;不支持）。有些数据集会采用更细粒度的划分。</p>
+<h2 id="证明生产"><a href="#证明生产" class="headerlink" title="证明生产"></a>证明生产</h2><p>事实核查人员需要说服读者相信他们对证据的解释。证明生产通常依赖以下几种策略：注意力权重可以用来突出证据中的显著部分；也可以将决策过程设计成人类专家可以理解的方式，比如一些基于逻辑的系统；或者将证明生产建模成一种摘要形式，其中系统为决策生成文本解释。<br>一种简单的证明形式是展示证据中的哪些部分被用来做出判决。此外，证明中应该包含证据是如何被使用的，解释所采用的任何假设或者常识事实，并说明为得到裁决而采取的推理过程。</p>
+<h1 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h1><h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1>
     </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
     
 </div>
 
@@ -259,6 +241,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="hedarko20/hedarko20.github.io"
+    data-repo-id="R_kgDOKdaIlg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOKdaIls4CZ9QH"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>
