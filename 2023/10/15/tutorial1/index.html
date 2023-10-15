@@ -174,12 +174,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/code/" style="color: #ffa2c4">code</a>
+                <a href="/tags/code/" style="color: #00bcd4">code</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/deeping-learning/" style="color: #00a596">deeping learning</a>
+                <a href="/tags/deeping-learning/" style="color: #ff7d73">deeping learning</a>
             </span>
             
         </span>
@@ -203,22 +203,33 @@ embedding_dim = 20
 # 随机生成batch_shape 大小，最大长度为 max_len 的句子(如果是正常的句子需要自己创建词表并索引化)
 src_sen_len = torch.randint(1, max_len, (batch_shape, ))
 tgt_sen_len = torch.randint(1, max_len, (batch_shape, )) 
-print(src_sen_len.shape)
-print(tgt_sen_len.shape)
+
 src_sen = [F.pad(torch.randint(1, dic_len, (L, )), (0, max_len-L)) for L in src_sen_len]
 tgt_sen = [F.pad(torch.randint(1, dic_len, (L, )), (0, max_len-L)) for L in tgt_sen_len]
 src_sen = torch.stack(src_sen)
 tgt_sen = torch.stack(tgt_sen)
-print(src_sen.shape)
-print(tgt_sen.shape)
-# embedding
+
+# word_embedding
 embedding_layer = nn.Embedding(dic_len+1, embedding_dim)
 ebd_src_sen = embedding_layer(src_sen)
 ebd_tgt_sen = embedding_layer(tgt_sen)
-print(ebd_src_sen)
-print(ebd_tgt_sen)
-print(ebd_src_sen.shape)
-print(ebd_tgt_sen.shape)
+
+# pos_embedding
+pos_mat = torch.arange(0, max_len).reshape(-1, 1)
+i_mat = torch.arange(0, embedding_dim).reshape(1, -1)
+i_mat = torch.pow(10000, 2 * i_mat / embedding_dim)
+pe_mat = pos_mat / i_mat
+pe_ebd_table = torch.zeros_like(pe_mat)
+pe_ebd_table[:, 0::2] = torch.sin(pe_mat[:, 0::2])
+pe_ebd_table[:, 1::2] = torch.cos(pe_mat[:, 1::2])
+print(pe_ebd_table.shape)
+
+pos_embedding = nn.Embedding(max_len, embedding_dim)
+pos_embedding.weight = nn.Parameter(pe_ebd_table, False)
+src_pos = pos_embedding(torch.stack([torch.arange(max(src_sen_len)) for _ in src_sen_len], dim=0))
+tgt_pos = pos_embedding(torch.stack([torch.arange(max(tgt_sen_len)) for _ in src_sen_len], dim=0))
+print(src_sen_len)
+print(src_pos.shape)
 </code></pre>
 <h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><ul>
 <li><a target="_blank" rel="noopener" href="https://pytorch.org/">PyTorch</a></li>
