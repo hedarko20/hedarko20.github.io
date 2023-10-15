@@ -174,12 +174,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/code/" style="color: #00bcd4">code</a>
+                <a href="/tags/code/" style="color: #ff7d73">code</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/deeping-learning/" style="color: #ff7d73">deeping learning</a>
+                <a href="/tags/deeping-learning/" style="color: #03a9f4">deeping learning</a>
             </span>
             
         </span>
@@ -213,8 +213,10 @@ tgt_sen = torch.stack(tgt_sen)
 embedding_layer = nn.Embedding(dic_len+1, embedding_dim)
 ebd_src_sen = embedding_layer(src_sen)
 ebd_tgt_sen = embedding_layer(tgt_sen)
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231015144831.png" alt="这是pos_embedding的公式"></p>
+<pre><code class="python"># pos_embedding
 
-# pos_embedding
 pos_mat = torch.arange(0, max_len).reshape(-1, 1)
 i_mat = torch.arange(0, embedding_dim).reshape(1, -1)
 i_mat = torch.pow(10000, 2 * i_mat / embedding_dim)
@@ -234,6 +236,7 @@ print(src_pos.shape)
 <h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><ul>
 <li><a target="_blank" rel="noopener" href="https://pytorch.org/">PyTorch</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cP4y1V7GF">Transformer模型Encoder原理精讲及其PyTorch逐行实现</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a></li>
 </ul>
 
     </div>
