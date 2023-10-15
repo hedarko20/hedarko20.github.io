@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>tags | Hedarko小窝</title>
+    <title>embedding pytorch 实现 | Hedarko小窝</title>
     <meta name="author" content="Hedarko" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -36,6 +36,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -149,78 +153,86 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/Hexo/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                Hexo
-            </a>
+            <div class="article">
+    <div>
+        <h1>embedding pytorch 实现</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
         </span>
         
         
-        
-        <span>
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                论文
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/code/" style="color: #ff7d73">code</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/deeping-learning/" style="color: #00bcd4">deeping learning</a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                阅读
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                假新闻检测
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/code/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                code
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/deeping-learning/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                deeping learning
-            </a>
-        </span>
-        
         
     </div>
+    
+    <div class="content" v-pre>
+        <pre><code class="python">import torch
+import torch.nn as nn
+import torch.nn.functional as F
+# import numpy as np
+
+batch_shape = 10
+max_len = 50
+dic_len = 300
+embedding_dim = 20
+
+# 随机生成batch_shape 大小，最大长度为 max_len 的句子(如果是正常的句子需要自己创建词表并索引化)
+src_sen_len = torch.randint(1, max_len, (batch_shape, ))
+tgt_sen_len = torch.randint(1, max_len, (batch_shape, )) 
+print(src_sen_len.shape)
+print(tgt_sen_len.shape)
+src_sen = [F.pad(torch.randint(1, dic_len, (L, )), (0, max_len-L)) for L in src_sen_len]
+tgt_sen = [F.pad(torch.randint(1, dic_len, (L, )), (0, max_len-L)) for L in tgt_sen_len]
+src_sen = torch.stack(src_sen)
+tgt_sen = torch.stack(tgt_sen)
+print(src_sen.shape)
+print(tgt_sen.shape)
+# embedding
+embedding_layer = nn.Embedding(dic_len+1, embedding_dim)
+ebd_src_sen = embedding_layer(src_sen)
+ebd_tgt_sen = embedding_layer(tgt_sen)
+print(ebd_src_sen)
+print(ebd_tgt_sen)
+print(ebd_src_sen.shape)
+print(ebd_tgt_sen.shape)
+</code></pre>
+<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://pytorch.org/">PyTorch</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cP4y1V7GF">Transformer模型Encoder原理精讲及其PyTorch逐行实现</a></li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
     
 </div>
 
@@ -252,6 +264,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="hedarko20/hedarko20.github.io"
+    data-repo-id="R_kgDOKdaIlg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOKdaIls4CZ9QH"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>

@@ -172,6 +172,84 @@
         
 
 <div class="post">
+    <a href="/2023/10/15/tutorial1/">
+        <h2 class="post-title">embedding pytorch 实现</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <pre><code class="python">import torch
+import torch.nn as nn
+import torch.nn.functional as F
+# import numpy as np
+
+batch_shape = 10
+max_len = 50
+dic_len = 300
+embedding_dim = 20
+
+# 随机生成batch_shape 大小，最大长度为 max_len 的句子(如果是正常的句子需要自己创建词表并索引化)
+src_sen_len = torch.randint(1, max_len, (batch_shape, ))
+tgt_sen_len = torch.randint(1, max_len, (batch_shape, )) 
+print(src_sen_len.shape)
+print(tgt_sen_len.shape)
+src_sen = [F.pad(torch.randint(1, dic_len, (L, )), (0, max_len-L)) for L in src_sen_len]
+tgt_sen = [F.pad(torch.randint(1, dic_len, (L, )), (0, max_len-L)) for L in tgt_sen_len]
+src_sen = torch.stack(src_sen)
+tgt_sen = torch.stack(tgt_sen)
+print(src_sen.shape)
+print(tgt_sen.shape)
+# embedding
+embedding_layer = nn.Embedding(dic_len+1, embedding_dim)
+ebd_src_sen = embedding_layer(src_sen)
+ebd_tgt_sen = embedding_layer(tgt_sen)
+print(ebd_src_sen)
+print(ebd_tgt_sen)
+print(ebd_src_sen.shape)
+print(ebd_tgt_sen.shape)
+</code></pre>
+<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://pytorch.org/">PyTorch</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cP4y1V7GF">Transformer模型Encoder原理精讲及其PyTorch逐行实现</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/code/" style="color: #ff7d73">code</a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/deeping-learning/" style="color: #ffa2c4">deeping learning</a>
+        </span>
+        
+    </div>
+    <a href="/2023/10/15/tutorial1/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/10/12/paper6/">
         <h2 class="post-title">A Survey on Automated Fact-Checking 阅读报告</h2>
     </a>
@@ -204,12 +282,12 @@
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
         </span>
         
     </div>
@@ -299,7 +377,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ff7d73">阅读</a>
         </span>
         
     </div>
@@ -339,12 +417,12 @@
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
         </span>
         
     </div>
@@ -384,12 +462,12 @@
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00a596">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
         </span>
         
         <span class="tag">
@@ -439,12 +517,12 @@
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #03a9f4">假新闻检测</a>
+            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #00a596">假新闻检测</a>
         </span>
         
     </div>
@@ -485,7 +563,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Hexo/" style="color: #00bcd4">Hexo</a>
+            <a href="/tags/Hexo/" style="color: #03a9f4">Hexo</a>
         </span>
         
     </div>
