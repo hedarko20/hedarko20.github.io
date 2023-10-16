@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Reasoning Over Semantic-Level Graph for Fact Checking 阅读笔记 | Hedarko小窝</title>
+    <title>paper7 | Hedarko小窝</title>
     <meta name="author" content="Hedarko" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -155,14 +155,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>Reasoning Over Semantic-Level Graph for Fact Checking 阅读笔记</h1>
+        <h1>paper7</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/10/11
+            2023/10/16
         </span>
         
         
@@ -182,19 +182,29 @@
                 <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
             </span>
             
+            <span class="tag">
+                
+                <a href="/tags/%E4%BA%8B%E5%AE%9E%E9%AA%8C%E8%AF%81/" style="color: #ff7d73">事实验证</a>
+            </span>
+            
         </span>
         
     </div>
     
     <div class="content" v-pre>
-        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>基于语义层次图的推理进行事实查证</p>
-<h1 id="作者和出处"><a href="#作者和出处" class="headerlink" title="作者和出处"></a>作者和出处</h1><p>The School of Data and Computer Science, Sun Yat-sen University（中山大学数据与计算机科学学院），Guangdong Key Laboratory of Big Data Analysis and Processing, Guangzhou, P.R.China（广东省大数据分析处理重点实验室，广州），Microsoft Research  MOE Key Lab of Computational Linguistics, Peking University（北京大学微软计算语言学教育部重点实验室）</p>
+        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>自动化事实核查：任务形式化、方法和未来方向</p>
+<h1 id="作者和出处"><a href="#作者和出处" class="headerlink" title="作者和出处"></a>作者和出处</h1><p>Department of Computer Science University of Sheffield, UK（英国谢菲尔德大学计算机科学系）</p>
 <span id="more"></span>
 
-<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>事实核查是一项具有挑战性的任务，因为验证一个主张的真实性需要对多个可检索的证据进行推理。在这项工作中，我们提出了一种适合对证据的语义层次结构进行推理的方法。与大多数先前的工作不同，这些工作通常使用字符串拼接或融合孤立证据句子的特征来表示证据句子，我们的方法操作的是通过语义角色标注获得的证据的丰富语义结构。我们提出了两种机制来利用证据结构，同时利用预训练模型（如 BERT、GPT 或 XLNet）的进展。具体来说，以 XLNet 为基础，我们首先利用图结构重新定义单词的相对距离，直观上，语义相关的单词应该具有较短的距离。然后，我们采用图卷积网络和图注意力网络从图中的相邻节点传播和聚合信息。我们在事实核查的基准数据集 FEVER 上评估我们的系统，并发现丰富的结构信息是有帮助的，而且我们的基于图的机制都提高了准确性。我们的模型在官方评估指标，即主张验证准确性和 FEVER 得分方面都是最先进的系统。</p>
-<h1 id="引言和结论"><a href="#引言和结论" class="headerlink" title="引言和结论"></a>引言和结论</h1><p>我们提出了一种基于图的推理方法进行事实核查。我们的系统使用语义角色标注（SRL）来构建图，并提出了两种基于图的表示学习机制。结果证实，两种基于图的机制都提高了准确性，我们的最终系统在 FEVER 数据集上实现了最先进的性能</p>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="句子级别证据选择"><a href="#句子级别证据选择" class="headerlink" title="句子级别证据选择"></a>句子级别证据选择</h2><p>该模块以一个Claim和所有文档取回的句子作为输入，返回前k个最相关的句子。<br>用第i个向量的CLS表式$ce_i&#x3D;[Claim,SEP,Evidence_i,SEP,CLS]$送入一个MLP中计算最终的得分，然后取前5个。</p>
-<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>不开源毛用没有</p>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>最近对错误信息的关注度增加，刺激了对事实核查的研究，即评估一个主张的真实性。对自动化这个任务的研究涉及多个学科，包括自然语言处理、机器学习、知识表示、数据库和新闻学。虽然已经取得了很大的进步，但在研究社区中，与事实核查相关的论文和文章往往是在彼此不了解的领域中发表的，使用的术语也不一致，从而阻碍了理解和进一步的进展。在本文中，我们调查了来自自然语言处理和相关学科的自动化事实核查研究，统一了论文和作者之间的任务形式和 methodologies。此外，我们还强调了证据作为它们之间的一个重要的区分因素，涵盖了任务形式和方法。最后，我们提出了未来自动化事实核查的自然语言处理研究的方向。</p>
+<h1 id="引言和结论"><a href="#引言和结论" class="headerlink" title="引言和结论"></a>引言和结论</h1><p>本文调查的结构如下：首先，我们在新闻背景下讨论事实核查，因为这将提供定义和关键术语的区别，这些术语将在后面的内容中多次使用。然后，我们接下来讨论自动化事实核查的先前研究，包括它们期望的输入、返回的输出以及在此过程中使用的证据。接着，我们概述了最常使用的数据集以及在这些数据集上开发和评估的模型。随后，我们讨论与自动化事实核查相关的工作，最后提出了未来自然语言处理研究的途径。</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="在新闻行业的事实核查"><a href="#在新闻行业的事实核查" class="headerlink" title="在新闻行业的事实核查"></a>在新闻行业的事实核查</h2><p>In particular, verification is defined as “scientific-like approach of getting the fact and also the right facts”（验证被定义为获得事实和正确事实的科学方法）which often involves verifying the source, date and the location of materials.（通常包括验证来源，日期和材料的位置）<br>Fact-checking on the other hand “addresses the claim’s logic, coherence and context”（事实核查通常是涉及声明的逻辑，连贯性和上下文）<br>而”假新闻“这个词在2016年美国大选中被频繁使用来标记一些不与真实性有关的声明，如指代政治对立的媒体机构，因此，我们在本文中避免使用这个词。</p>
+<h2 id="走进自动事实核查"><a href="#走进自动事实核查" class="headerlink" title="走进自动事实核查"></a>走进自动事实核查</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>事实核查的输入的格式和内容会影响证据的类型。一个比较流行的输入类型是主谓宾三元组，如(London, capital of, UK)。三元组流行的原因是它们可以利用现有知识库如Freebase进行验证。但是使用三元组包含了需要将文本，语音或者其他形式的声明转变为三元组。<br>而另一种输入是文本声明，这些声明通常是从较长的段落中构建的简短句子，目的是获得只包含与原始声明相关的上下文。</p>
+<h3 id="证据来源"><a href="#证据来源" class="headerlink" title="证据来源"></a>证据来源</h3><p>用于事实核查的证据类型会影响事实核查系统可以生成的模型和输出。<br>首先考虑在预测声明的真实性时不使用除声明之外的其他证据。这种情况声明的真实性和声明的表层语义特征相挂钩。<br>也可以纳入其他元数据，如声明创作者，发言人信息和声明的媒体来源。<br>也可以使用知识图谱。使用知识图谱的限制是假设与声明相关的真实事实存在知识图谱中，但是将所有和声明相关的事实提前存入知识图谱中很困难。<br>也可以使用来自百科全书，政策文件，经核实的新闻和科学期刊等的文本。<br>FEVER中的证据不是提供的，必须从维基百科中检索。<br>也可以将以前的经事实核查的存储库拿来做事实核查，但是仅限库中有类似声明时才能用。<br>也可以利用社交网络上帖子的分布情况作为证据来推断内容的真实性。谣言真实性预测是通过评估用户与内容的互动和分布行为来预测内容中的主张是真是假。<br>证据来源通常是给定的，例如维基百科或者Freebase，因为这有助于开发和评估。</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>事实核查最简单的模型是将一项声明标记为真或者假，作为二分任务。<br>在FEVER中，输出由两部分组成：一个三分类的标签，以及在前两个标签下的证据语句。</p>
+<h2 id="事实核查的数据集"><a href="#事实核查的数据集" class="headerlink" title="事实核查的数据集"></a>事实核查的数据集</h2><p>FEVER</p>
+<h2 id="事实核查方法"><a href="#事实核查方法" class="headerlink" title="事实核查方法"></a>事实核查方法</h2><p>大多数是有监督的。</p>
+<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>如看。<br><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231013155237.png" alt="郭继承"></p>
 
     </div>
     
