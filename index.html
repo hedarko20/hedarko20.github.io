@@ -172,6 +172,94 @@
         
 
 <div class="post">
+    <a href="/2023/10/17/Stanza%20NLP%20TokenizeProcessor%20the%20basics%20%20by%20Skull%20and%20Zen%E2%84%A2%EF%B8%8F%20%20Plain%20Simple%20Software%20%20Medium/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/17
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="Natural-Language-Processing"><a href="#Natural-Language-Processing" class="headerlink" title="Natural Language Processing"></a>Natural Language Processing</h2><p>[</p>
+<p><img src="https://miro.medium.com/v2/resize:fill:44:44/1*bEKAxG5-B4AN2U803RyC2w@2x.jpeg" alt="Skull and Zen™️"></p>
+<p>](<a target="_blank" rel="noopener" href="https://medium.com/@SkullandZen?source=post_page-----4d857040ee56--------------------------------)%5B">https://medium.com/@SkullandZen?source=post_page-----4d857040ee56--------------------------------)[</a></p>
+<p><img src="https://miro.medium.com/v2/resize:fill:24:24/1*EHN94mlRskrD2e3jbytfpQ.png" alt="Plain Simple Software"></p>
+<p>](<a target="_blank" rel="noopener" href="https://medium.com/plain-simple-software?source=post_page-----4d857040ee56--------------------------------">https://medium.com/plain-simple-software?source=post_page-----4d857040ee56--------------------------------</a>)</p>
+<p><strong>Explorations into Natural Language Processing</strong></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:698/0*Z6a2Na5Xp7vnkqCe" alt="Stanza NLP logo"></p>
+<p>The Stanza NLP library is a Python natural language analysis library built by the Stanford NLP group and launched in 2020. One cannot speak about using Python for language processing without mentioning this up-and-coming contender in the fight for the most robust NLP library on the block. Using Universal Dependencies, the library’s consistent annotation is available in 60+ languages. In this article, I’d like to take a closer look at one of its main features, tokenization.</p>
+<p>If you are unfamiliar with what tokenization is, feel free to catch up with my previous article: <a target="_blank" rel="noopener" href="https://medium.com/@ZenzeleMyricks/explorations-into-natural-language-processing-introduction-and-the-basics-of-tokenization-71f30d8a1579">Explorations into Natural Language Processing: Introduction and the basics of Tokenization | by Zenzele Myricks | Sep, 2022 | Medium</a></p>
+<p><strong>Stanza NLP — Installation and Getting Set-up:</strong></p>
+<p>If you don’t already have Stanza on your machine, the following code will get you started.</p>
+<p>To begin: install the Stanza NLP library. Stanza supports Python 3.6 or later. Installation via Python’s package manager, pip, is the most recommended route.</p>
+<p>Using pip:</p>
+<pre><code>pip install stanza
+</code></pre>
+<p>If you already have the library installed, use the following code to ensure you have the latest version.</p>
+<pre><code>pip install stanza -U
+</code></pre>
+<p>For installation using Anaconda, use the following conda command:</p>
+<pre><code>conda install -c stanfordnlp stanza
+</code></pre>
+<p>According to the official documentation, Stanza via Anaconda does not currently support Python 3.8. For that version, use pip installation.</p>
+<p>You also have the option of downloading via the GitHub repo for greater flexibility during app development on top of Stanza. To do this, you must first install Cuda. Second, you must install PyTorch. Once done, you may now run the following code:</p>
+<pre><code>git clone https://github.com/stanfordnlp/stanza.gitcd stanzapip install -e .
+</code></pre>
+<p>The next step is to initialize a pipeline. This will pre-load a series of processors, with each processor performing a specific NLP task. For general purposes, you can load the default English package and all processors for the language using this code.</p>
+<pre><code>import stanzastanza.download(‘en’)
+</code></pre>
+<p>Alternatively, we can specify the processor we need for the task at hand. Using the following code, we will load the default English package and specify the TokenizerProcessor as well as the POSProcessor to label our tokens with their proper entity information.</p>
+<pre><code>import stanzastanza.download(‘en’,processors=’tokenize,pos’)
+</code></pre>
+<p><strong>Stanza NLP — Tokenize text data:</strong></p>
+<p><strong>Sentence Segmentation and Tokenization</strong></p>
+<p>By default, the TokenizeProcessor simultaneously performs tokenization and sentence segmentation. We can use a ‘for loop’ and the built in Python function, enumerate(), to perform this operation on our document. Here is an example.</p>
+<pre><code>document = nlp(“BeBe Zahara Benet is from Cameroon. She is the first winner of RuPauls Drag Race.”)for i,sentence in enumerate(document.sentences):print(f’tokens in sentence#&#123;i+1&#125;:’)print(*[f’id: &#123;token.id&#125;\text: &#123;token.text&#125;’ for token in sentence.tokens], sep=’\n’)
+</code></pre>
+<p>Output:</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:242/0*dJUiiR02_OR8mMUj"></p>
+<p>The text has been segmented into its two sentences and each segment contains indexed tokens.</p>
+<p>If you need just sentence segmentation, Stanza can also accommodate that. Here is an example.</p>
+<pre><code>document = nlp(“BeBe Zahara Benet is from Cameroon. She is the first winner of RuPauls Drag Race.”)print([sentence.text for sentence in document.sentences])
+</code></pre>
+<p>Output:</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:629/0*YeAKvdk3D6cN2_gm"></p>
+<p>The return is a list of strings. The document has been split by its sentences only.</p>
+<p><strong>Tokenization without Sentence Segmentation</strong></p>
+<p>You may have documents that have been formatted prior to analysis and need to keep existing sentence segmentation. As long as within the raw text, the sentences are segmented by two continuous newlines, this can be done. Here is an example where we set the pipeline option “tokenize_no_ssplit” to True. This disables the default sentence segmentation and only runs tokenization.</p>
+<pre><code>nlp = stanza.Pipeline(lang=’en’,processors=’tokenize’, tokenize_no_ssplit=True)document = nlp(“BeBe Zahara Benet is from Cameroon.\n\nShe is the first winner of RuPauls Drag Race. She was also on All Stars 3”)for i, sentence in enumerate(document.sentences):print(f’ — Sentence &#123;i+1&#125; tokens — ‘)print(*[f’id: &#123;token.id&#125;\ttext: &#123;token.text&#125;’ for token in sentence.tokens], sep=’\n’)
+</code></pre>
+<p>Output:</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:240/0*Jzm3jjn4AmFY2SCR"></p>
+<p>This has returned two sentences split by the two newlines(\n\n) in the raw text. Both segments contain their respective indexed tokens.</p>
+<p><strong>Quick note about other features:</strong></p>
+<p>The Stanza NLP library can also be used with pre-tokenized text. Should you be using Stanza for other down streaming tasks, the library can still process your pre-tokenized data as newline (\n) separated sentences. The library also has a spaCy interface that can be used as the processor for tokenization. It has been implemented in use-cases with large-scale text data.</p>
+<p><strong>A Summary:</strong></p>
+<p>In this post we explored the TokenizeProcessor and how it can be used to return tokens, sentence segmentation and more. I can’t wait to use this in future pipelines. Thanks for joining me and stay tuned for more articles in my exploration into NLP.</p>
+<p><strong><em>Interested in learning more?</em></strong></p>
+<p>If you enjoyed this brief tutorial, please follow me, <a target="_blank" rel="noopener" href="https://medium.com/@ZenzeleMyricks">Z. Myricks</a>, for more guides in all things <a target="_blank" rel="noopener" href="http://pythonforpythonistas.com/">Python</a>. Make sure to follow <a target="_blank" rel="noopener" href="https://medium.com/plain-simple-software">Plain Simple Software</a> for more software articles!</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/17/Stanza%20NLP%20TokenizeProcessor%20the%20basics%20%20by%20Skull%20and%20Zen%E2%84%A2%EF%B8%8F%20%20Plain%20Simple%20Software%20%20Medium/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/10/17/tutorial2/">
         <h2 class="post-title">记录下Python中有关path的bug及解决方案</h2>
     </a>
@@ -240,7 +328,7 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/debug/" style="color: #ffa2c4">debug</a>
+            <a href="/tags/debug/" style="color: #ff7d73">debug</a>
         </span>
         
         <span class="tag">
@@ -285,12 +373,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ffa2c4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00a596">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ff7d73">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
         </span>
         
         <span class="tag">
@@ -335,7 +423,7 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ffa2c4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
         </span>
         
         <span class="tag">
@@ -345,7 +433,7 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E4%BA%8B%E5%AE%9E%E9%AA%8C%E8%AF%81/" style="color: #ffa2c4">事实验证</a>
+            <a href="/tags/%E4%BA%8B%E5%AE%9E%E9%AA%8C%E8%AF%81/" style="color: #00bcd4">事实验证</a>
         </span>
         
     </div>
@@ -384,12 +472,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/code/" style="color: #03a9f4">code</a>
+            <a href="/tags/code/" style="color: #00a596">code</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/deeping-learning/" style="color: #00a596">deeping learning</a>
+            <a href="/tags/deeping-learning/" style="color: #ff7d73">deeping learning</a>
         </span>
         
     </div>
@@ -429,12 +517,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ffa2c4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ff7d73">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
         </span>
         
     </div>
@@ -474,7 +562,7 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #03a9f4">论文</a>
         </span>
         
         <span class="tag">
@@ -564,12 +652,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ffa2c4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #03a9f4">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ff7d73">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00a596">阅读</a>
         </span>
         
     </div>
@@ -609,71 +697,21 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #03a9f4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00a596">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #03a9f4">假新闻检测</a>
+            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #00a596">假新闻检测</a>
         </span>
         
     </div>
     <a href="/2023/10/10/paper2/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/09/paper1/">
-        <h2 class="post-title">MUSER: A MUlti-Step Evidence Retrieval Enhancement Framework for Fake News Detection 阅读笔记</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/9
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>一种基于多部证据取回增强的假新闻检测框架</p>
-<h1 id="作者和出处"><a href="#作者和出处" class="headerlink" title="作者和出处"></a>作者和出处</h1><p>Shenzhen University(深圳大学),Illinois Institute of Technology(伊利诺伊理工学院),Microsoft Research Asia(微软亚洲研究院).</p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00a596">论文</a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #ff7d73">假新闻检测</a>
-        </span>
-        
-    </div>
-    <a href="/2023/10/09/paper1/" class="go-post">阅读全文</a>
 </div>
 
 

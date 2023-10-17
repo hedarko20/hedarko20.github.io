@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Reasoning Over Semantic-Level Graph for Fact Checking 阅读笔记 | Hedarko小窝</title>
+    <title> | Hedarko小窝</title>
     <meta name="author" content="Hedarko" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -155,46 +155,78 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>Reasoning Over Semantic-Level Graph for Fact Checking 阅读笔记</h1>
+        <h1></h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/10/11
+            2023/10/17
         </span>
         
-        
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            
-            <span class="tag">
-                
-                <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00a596">论文</a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
-            </span>
-            
-        </span>
         
     </div>
     
     <div class="content" v-pre>
-        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>基于语义层次图的推理进行事实查证</p>
-<h1 id="作者和出处"><a href="#作者和出处" class="headerlink" title="作者和出处"></a>作者和出处</h1><p>The School of Data and Computer Science, Sun Yat-sen University（中山大学数据与计算机科学学院），Guangdong Key Laboratory of Big Data Analysis and Processing, Guangzhou, P.R.China（广东省大数据分析处理重点实验室，广州），Microsoft Research  MOE Key Lab of Computational Linguistics, Peking University（北京大学微软计算语言学教育部重点实验室）</p>
-<span id="more"></span>
-
-<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>事实核查是一项具有挑战性的任务，因为验证一个主张的真实性需要对多个可检索的证据进行推理。在这项工作中，我们提出了一种适合对证据的语义层次结构进行推理的方法。与大多数先前的工作不同，这些工作通常使用字符串拼接或融合孤立证据句子的特征来表示证据句子，我们的方法操作的是通过语义角色标注获得的证据的丰富语义结构。我们提出了两种机制来利用证据结构，同时利用预训练模型（如 BERT、GPT 或 XLNet）的进展。具体来说，以 XLNet 为基础，我们首先利用图结构重新定义单词的相对距离，直观上，语义相关的单词应该具有较短的距离。然后，我们采用图卷积网络和图注意力网络从图中的相邻节点传播和聚合信息。我们在事实核查的基准数据集 FEVER 上评估我们的系统，并发现丰富的结构信息是有帮助的，而且我们的基于图的机制都提高了准确性。我们的模型在官方评估指标，即主张验证准确性和 FEVER 得分方面都是最先进的系统。</p>
-<h1 id="引言和结论"><a href="#引言和结论" class="headerlink" title="引言和结论"></a>引言和结论</h1><p>我们提出了一种基于图的推理方法进行事实核查。我们的系统使用语义角色标注（SRL）来构建图，并提出了两种基于图的表示学习机制。结果证实，两种基于图的机制都提高了准确性，我们的最终系统在 FEVER 数据集上实现了最先进的性能</p>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="句子级别证据选择"><a href="#句子级别证据选择" class="headerlink" title="句子级别证据选择"></a>句子级别证据选择</h2><p>该模块以一个Claim和所有文档取回的句子作为输入，返回前k个最相关的句子。<br>用第i个向量的CLS表式$ce_i&#x3D;[Claim,SEP,Evidence_i,SEP,CLS]$送入一个MLP中计算最终的得分，然后取前5个。</p>
-<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>不开源毛用没有</p>
+        <h2 id="Natural-Language-Processing"><a href="#Natural-Language-Processing" class="headerlink" title="Natural Language Processing"></a>Natural Language Processing</h2><p>[</p>
+<p><img src="https://miro.medium.com/v2/resize:fill:44:44/1*bEKAxG5-B4AN2U803RyC2w@2x.jpeg" alt="Skull and Zen™️"></p>
+<p>](<a target="_blank" rel="noopener" href="https://medium.com/@SkullandZen?source=post_page-----4d857040ee56--------------------------------)%5B">https://medium.com/@SkullandZen?source=post_page-----4d857040ee56--------------------------------)[</a></p>
+<p><img src="https://miro.medium.com/v2/resize:fill:24:24/1*EHN94mlRskrD2e3jbytfpQ.png" alt="Plain Simple Software"></p>
+<p>](<a target="_blank" rel="noopener" href="https://medium.com/plain-simple-software?source=post_page-----4d857040ee56--------------------------------">https://medium.com/plain-simple-software?source=post_page-----4d857040ee56--------------------------------</a>)</p>
+<p><strong>Explorations into Natural Language Processing</strong></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:698/0*Z6a2Na5Xp7vnkqCe" alt="Stanza NLP logo"></p>
+<p>The Stanza NLP library is a Python natural language analysis library built by the Stanford NLP group and launched in 2020. One cannot speak about using Python for language processing without mentioning this up-and-coming contender in the fight for the most robust NLP library on the block. Using Universal Dependencies, the library’s consistent annotation is available in 60+ languages. In this article, I’d like to take a closer look at one of its main features, tokenization.</p>
+<p>If you are unfamiliar with what tokenization is, feel free to catch up with my previous article: <a target="_blank" rel="noopener" href="https://medium.com/@ZenzeleMyricks/explorations-into-natural-language-processing-introduction-and-the-basics-of-tokenization-71f30d8a1579">Explorations into Natural Language Processing: Introduction and the basics of Tokenization | by Zenzele Myricks | Sep, 2022 | Medium</a></p>
+<p><strong>Stanza NLP — Installation and Getting Set-up:</strong></p>
+<p>If you don’t already have Stanza on your machine, the following code will get you started.</p>
+<p>To begin: install the Stanza NLP library. Stanza supports Python 3.6 or later. Installation via Python’s package manager, pip, is the most recommended route.</p>
+<p>Using pip:</p>
+<pre><code>pip install stanza
+</code></pre>
+<p>If you already have the library installed, use the following code to ensure you have the latest version.</p>
+<pre><code>pip install stanza -U
+</code></pre>
+<p>For installation using Anaconda, use the following conda command:</p>
+<pre><code>conda install -c stanfordnlp stanza
+</code></pre>
+<p>According to the official documentation, Stanza via Anaconda does not currently support Python 3.8. For that version, use pip installation.</p>
+<p>You also have the option of downloading via the GitHub repo for greater flexibility during app development on top of Stanza. To do this, you must first install Cuda. Second, you must install PyTorch. Once done, you may now run the following code:</p>
+<pre><code>git clone https://github.com/stanfordnlp/stanza.gitcd stanzapip install -e .
+</code></pre>
+<p>The next step is to initialize a pipeline. This will pre-load a series of processors, with each processor performing a specific NLP task. For general purposes, you can load the default English package and all processors for the language using this code.</p>
+<pre><code>import stanzastanza.download(‘en’)
+</code></pre>
+<p>Alternatively, we can specify the processor we need for the task at hand. Using the following code, we will load the default English package and specify the TokenizerProcessor as well as the POSProcessor to label our tokens with their proper entity information.</p>
+<pre><code>import stanzastanza.download(‘en’,processors=’tokenize,pos’)
+</code></pre>
+<p><strong>Stanza NLP — Tokenize text data:</strong></p>
+<p><strong>Sentence Segmentation and Tokenization</strong></p>
+<p>By default, the TokenizeProcessor simultaneously performs tokenization and sentence segmentation. We can use a ‘for loop’ and the built in Python function, enumerate(), to perform this operation on our document. Here is an example.</p>
+<pre><code>document = nlp(“BeBe Zahara Benet is from Cameroon. She is the first winner of RuPauls Drag Race.”)for i,sentence in enumerate(document.sentences):print(f’tokens in sentence#&#123;i+1&#125;:’)print(*[f’id: &#123;token.id&#125;\text: &#123;token.text&#125;’ for token in sentence.tokens], sep=’\n’)
+</code></pre>
+<p>Output:</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:242/0*dJUiiR02_OR8mMUj"></p>
+<p>The text has been segmented into its two sentences and each segment contains indexed tokens.</p>
+<p>If you need just sentence segmentation, Stanza can also accommodate that. Here is an example.</p>
+<pre><code>document = nlp(“BeBe Zahara Benet is from Cameroon. She is the first winner of RuPauls Drag Race.”)print([sentence.text for sentence in document.sentences])
+</code></pre>
+<p>Output:</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:629/0*YeAKvdk3D6cN2_gm"></p>
+<p>The return is a list of strings. The document has been split by its sentences only.</p>
+<p><strong>Tokenization without Sentence Segmentation</strong></p>
+<p>You may have documents that have been formatted prior to analysis and need to keep existing sentence segmentation. As long as within the raw text, the sentences are segmented by two continuous newlines, this can be done. Here is an example where we set the pipeline option “tokenize_no_ssplit” to True. This disables the default sentence segmentation and only runs tokenization.</p>
+<pre><code>nlp = stanza.Pipeline(lang=’en’,processors=’tokenize’, tokenize_no_ssplit=True)document = nlp(“BeBe Zahara Benet is from Cameroon.\n\nShe is the first winner of RuPauls Drag Race. She was also on All Stars 3”)for i, sentence in enumerate(document.sentences):print(f’ — Sentence &#123;i+1&#125; tokens — ‘)print(*[f’id: &#123;token.id&#125;\ttext: &#123;token.text&#125;’ for token in sentence.tokens], sep=’\n’)
+</code></pre>
+<p>Output:</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:240/0*Jzm3jjn4AmFY2SCR"></p>
+<p>This has returned two sentences split by the two newlines(\n\n) in the raw text. Both segments contain their respective indexed tokens.</p>
+<p><strong>Quick note about other features:</strong></p>
+<p>The Stanza NLP library can also be used with pre-tokenized text. Should you be using Stanza for other down streaming tasks, the library can still process your pre-tokenized data as newline (\n) separated sentences. The library also has a spaCy interface that can be used as the processor for tokenization. It has been implemented in use-cases with large-scale text data.</p>
+<p><strong>A Summary:</strong></p>
+<p>In this post we explored the TokenizeProcessor and how it can be used to return tokens, sentence segmentation and more. I can’t wait to use this in future pipelines. Thanks for joining me and stay tuned for more articles in my exploration into NLP.</p>
+<p><strong><em>Interested in learning more?</em></strong></p>
+<p>If you enjoyed this brief tutorial, please follow me, <a target="_blank" rel="noopener" href="https://medium.com/@ZenzeleMyricks">Z. Myricks</a>, for more guides in all things <a target="_blank" rel="noopener" href="http://pythonforpythonistas.com/">Python</a>. Make sure to follow <a target="_blank" rel="noopener" href="https://medium.com/plain-simple-software">Plain Simple Software</a> for more software articles!</p>
 
     </div>
     
