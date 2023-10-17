@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Hexo教程 | Hedarko小窝</title>
+    <title>Hedarko小窝</title>
     <meta name="author" content="Hedarko" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -41,9 +41,7 @@
 
 
 
-
-
-
+<script src="/js/lib/home.js"></script>
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -153,11 +151,32 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>Hexo教程</h1>
+            <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-images="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/1.png,https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/2.jpg"></div>
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Hedarko小窝</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
     </div>
-    <div class="info">
+</div>
+<div id="home-posts-wrap" true ref="homePostsWrap">
+    <div id="home-posts">
+        
+
+<div class="post">
+    <a href="/2023/10/08/Hexo%E6%95%99%E7%A8%8B/">
+        <h2 class="post-title">Hexo教程</h2>
+    </a>
+    <div class="category-and-date">
+        
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
@@ -166,43 +185,129 @@
         </span>
         
         
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
             
+            <h1 id="一些关于Hexo的小技巧"><a href="#一些关于Hexo的小技巧" class="headerlink" title="一些关于Hexo的小技巧"></a>一些关于Hexo的小技巧</h1><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
+<li>新建文章：<code>hexo new &lt;模板名&gt; &lt;文件名&gt;</code></li>
+<li>部署：<code>hexo d -g</code>
             
-            <span class="tag">
-                
-                <a href="/tags/Hexo/" style="color: #ffa2c4">Hexo</a>
-            </span>
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
             
+            <a href="/tags/Hexo/" style="color: #00a596">Hexo</a>
         </span>
         
     </div>
+    <a href="/2023/10/08/Hexo%E6%95%99%E7%A8%8B/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/08/HelloWorld/">
+        <h2 class="post-title">HelloWorld</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/8
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>这是我的第一篇博客</p>
+<p>照着这个<a target="_blank" rel="noopener" href="https://wzl-plasmid.github.io/2023/01/22/blog-construction/">指南</a>搭得,感谢!</p>
+<p>图床使用的<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a>,感谢!</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/08/HelloWorld/" class="go-post">阅读全文</a>
+</div>
+
+
+        <div class="page-current">
     
-    <div class="content" v-pre>
-        <h1 id="一些关于Hexo的小技巧"><a href="#一些关于Hexo的小技巧" class="headerlink" title="一些关于Hexo的小技巧"></a>一些关于Hexo的小技巧</h1><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
-<li>新建文章：<code>hexo new &lt;模板名&gt; &lt;文件名&gt;</code></li>
-<li>部署：<code>hexo d -g</code><span id="more"></span></li>
-</ul>
-<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
-<li>标题最好拿单引号括起来，不然在包含特殊字符时会报错。</li>
-<li>可以在scaffolds文件夹中新建模板，在文件开头加上layout: &lt;模板名&gt;</li>
-<li>图片最好放在图床，包括主题里的图片，这样会快很多。</li>
-</ul>
+    <a class="page-num" href="/">
+        <i class="fa-solid fa-caret-left fa-fw"></i>
+    </a>
+    <a class="page-num" href="/">1</a>
+    <span class="page-omit">...</span>
+    
+    <span class="current">2</span>
+    
+    
+    
+    
+</div>
 
     </div>
     
-    
-    
-    
-    <div id="comment">
-        <div id="giscus-container" class="giscus"></div>
+    <div id="home-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">Hedarko</div>
+        <div class="description">
+            <p><a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/zh-hans/%E9%99%86%E5%85%AB%E9%AD%94%E4%BA%9A%E7%91%A0">会做算数(确信)</a></p>
+
+        </div>
+        
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/8260038">
+                    <i
+                        class="fa-brands fa-bilibili fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/hedarko20">
+                    <i
+                        class="fa-brands fa-github fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
+            </div>
+            
+        </div>
+        
     </div>
-    
-    
-    
+</div>
+
+    </div>
     
 </div>
 
@@ -234,29 +339,6 @@
         
     </div>
     <script src="/js/main.js"></script>
-    
-    
-<script
-    src="https://giscus.app/client.js"
-    data-repo="hedarko20/hedarko20.github.io"
-    data-repo-id="R_kgDOKdaIlg"
-    data-category="Announcements"
-    data-category-id="DIC_kwDOKdaIls4CZ9QH"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    crossorigin
-    async
-></script>
-
-
-
-
-
     
 </body>
 </html>
