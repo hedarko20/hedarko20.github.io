@@ -190,43 +190,6 @@
         <div class="content" v-pre>
             
             <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>项目目录如下</p>
-<pre><code>.
-├── best_model.pth
-├── factify2
-│   ├── ...
-│   
-├── inference.py
-├── main.py
-├── model
-│   ├── ... 
-│   
-├── model_epoch903_acc0.7617333333333334
-├── predict.csv
-├── __pycache__
-│   ├── __init__.cpython-38.pyc
-│   └── main.cpython-38.pyc
-├── README.md
-├── requirements.txt
-├── retrieval
-│   ├── retrieval.py
-│   └── test.py
-├── test_data_save.pkl
-├── Test.py
-├── train_data_save.pkl
-├── utils
-│   ├── dataset.py
-│   └── __pycache__
-└── val_data_save.pkl
-</code></pre>
-<h1 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h1><p>在 <code>/retrieval/retrieval.py</code> 中导入 <code>/main.py</code> 中的 <code>TrainDataset</code> 类。<br>一开始尝试 <code>from main import TrainDataset</code> 报错，找不到main模块。<br>会不会是应为当前目录是 <code>main</code> 的子目录，因此修改为 <code>from ..main import TrainDataset</code> 依然报错，不能相对索引。<br>那是不是项目没加到path里呢？于是修改为</p>
-<pre><code>import sys
-sys.path.append(&#39;..&#39;)
-print(sys.path)
-from main import TrainDataset
-</code></pre>
-<p>依然报错，还是找不着。<br>把<code>main.py</code> 中的 <code>TrainDataset</code>分离到 <code>/utils/dataset.py</code> 还是报错。</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在打印的 <code>sys.path</code> 中确实存在 <code>..</code> 这一项，可是为啥索引不到 <code>main.py</code> 或者 <code>dataset.py</code> 呢？<br>打印当前工作目录 <code>print (os.path.abspath(os.curdir))</code> ，结果发现工作目录是 <code>/</code> ，但是运行 <code>/retrieval/retrieval.py</code> 时 Python 未将根目录加入 path 中。所以只需将 <code>sys.path.append(&#39;..&#39;)</code> 改为 <code>sys.path.append(&#39;.&#39;)</code> ，问题解决~</p>
-
             
         </div>
     </div>
@@ -240,12 +203,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/debug/" style="color: #ffa2c4">debug</a>
+            <a href="/tags/debug/" style="color: #03a9f4">debug</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/python/" style="color: #00a596">python</a>
+            <a href="/tags/python/" style="color: #ff7d73">python</a>
         </span>
         
     </div>
@@ -295,7 +258,7 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2/" style="color: #00bcd4">信息检索</a>
+            <a href="/tags/%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2/" style="color: #ff7d73">信息检索</a>
         </span>
         
     </div>
@@ -335,12 +298,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
         </span>
         
         <span class="tag">
@@ -384,12 +347,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/code/" style="color: #ff7d73">code</a>
+            <a href="/tags/code/" style="color: #ffa2c4">code</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/deeping-learning/" style="color: #ffa2c4">deeping learning</a>
+            <a href="/tags/deeping-learning/" style="color: #00bcd4">deeping learning</a>
         </span>
         
     </div>
@@ -429,12 +392,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #03a9f4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
         </span>
         
     </div>
@@ -474,12 +437,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #03a9f4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
         </span>
         
     </div>
@@ -519,12 +482,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ff7d73">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ff7d73">阅读</a>
         </span>
         
     </div>
@@ -564,12 +527,12 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #03a9f4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ffa2c4">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
         </span>
         
     </div>
@@ -609,17 +572,17 @@ from main import TrainDataset
         
         <span class="tag">
             
-            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ffa2c4">论文</a>
+            <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #03a9f4">论文</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ff7d73">阅读</a>
+            <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #ffa2c4">假新闻检测</a>
+            <a href="/tags/%E5%81%87%E6%96%B0%E9%97%BB%E6%A3%80%E6%B5%8B/" style="color: #03a9f4">假新闻检测</a>
         </span>
         
     </div>
