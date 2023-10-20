@@ -174,17 +174,17 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
+                <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #ffa2c4">论文</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00a596">阅读</a>
+                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2/" style="color: #ffa2c4">信息检索</a>
+                <a href="/tags/%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2/" style="color: #ff7d73">信息检索</a>
             </span>
             
         </span>
@@ -192,14 +192,18 @@
     </div>
     
     <div class="content" v-pre>
-        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>基于对比学习的无监督密集信息检索</p>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=376 height=86 src="//music.163.com/outchain/player?type=2&id=481859401&auto=1&height=66"></iframe>
+
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>基于对比学习的无监督密集信息检索</p>
 <h1 id="作者和出处"><a href="#作者和出处" class="headerlink" title="作者和出处"></a>作者和出处</h1><p>Meta AI Research（Meta AI研究所）</p>
 <span id="more"></span>
 
 <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>近年来，信息检索领域出现了基于神经网络的密集检索器，作为基于词频的经典稀疏方法的替代。这些模型在有大训练数据的数据集和任务上取得了最先进的结果。然而，它们在新应用中没有训练数据时迁移效果较差，并且在诸如 BM25 等无监督词频方法的性能面前落败。在这项工作中，我们探讨了对比学习作为一种训练无监督密集检索器的方法，并表明它在各种检索设置中导致了强大的性能。在我们的 BEIR 基准测试中，我们的无监督模型在 15 个数据集中有 11 个在 Recall@100 上优于 BM25。当使用我们的对比模型作为微调前的预训练，无论是使用领域内几千个示例，还是使用大型 MS MARCO 数据集，都可以在 BEIR 基准测试中取得改进。最后，我们评估了我们的方法在多语言检索中的应用，在这种情况下，训练数据甚至比英语更少，并表明我们的方法导致了强大的无监督性能。我们的模型在仅使用监督英语数据进行微调并在斯瓦希里语等低资源语言上进行评估时，也表现出强大的跨语言转移。</p>
 <h1 id="引言和结论"><a href="#引言和结论" class="headerlink" title="引言和结论"></a>引言和结论</h1><p>文档检索是一个在大量集合中寻找相关文档来回答特定查询的任务。<br>传统的检索系统依赖查询和文档之间的近乎精确的匹配，导致其泛化效果不佳。<br>神经网络具有强大的检索能力，但是创建数据集需要手动匹配。在大型数据集上几乎不可能做到。所以，基于神经网络的稠密检索器的效果往往不如基于词频的做法，因为基于词频的做法是无监督的。此外，大型数据集通常不包含除英语以外的其他版本，因此，使用大量的监督数据集不适合训练多语言的检索系统。<br>在本文中，我们做出了以下贡献。首先，我们证明了对比学习可以导致强大的无监督检索器：我们的模型在 BEIR 基准测试的 most 数据集上取得了与 BM25 竞争的 Recall@100 结果。其次，在少量示例（few-shot）设置中，我们证明了我们的模型可以从少量训练示例中受益，并获得了比从诸如 MS MARCO 之类的大型数据集中转移的模型更好的结果。第三，当我们使用 MS MARCO 进行微调之前，我们的技术在 BEIR 基准测试中导致了强大的性能。我们进行了一些 ablation 以激发我们的设计选择，并表明裁剪比反向 Cloze 任务效果更好。最后，我们使用对比学习训练了一个多语言密集检索器，并表明它取得了最先进的性能。</p>
 <h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>用一个Transformer架构的编码器同时对query和doc分别进行编码，最后一层取平均，然后点积求相似性。<br>$$s(q,d)&#x3D;\langle f_\theta(q),f_\theta(d)\rangle $$<br>如果对query和doc分别设计不同的编码器进行编码，可能会降低零样本和少样本情况下的鲁棒性。</p>
-<h2 id="在未标注的文档上进行无监督学习"><a href="#在未标注的文档上进行无监督学习" class="headerlink" title="在未标注的文档上进行无监督学习"></a>在未标注的文档上进行无监督学习</h2><h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1>
+<h2 id="在未标注的文档上进行无监督学习"><a href="#在未标注的文档上进行无监督学习" class="headerlink" title="在未标注的文档上进行无监督学习"></a>在未标注的文档上进行无监督学习</h2><h3 id="对比学习"><a href="#对比学习" class="headerlink" title="对比学习"></a>对比学习</h3><p>对比学习是基于每个文档都是独一无二的事实来实现的。对比损失通常是通过对文件进行区分来学习。这种损失比较正样本对（来自同一个文档）或者负样本对（来自不同文档）的文件表示。<br>给定一个查询q，一个与q相关的正样本文档k<del>+</del>，一个负文档池，contrastive InfoNCE loss被定义为$\mathcal{L}(q,k_+)&#x3D;-\frac{\exp(s(q,k_+)&#x2F;\tau)}{\exp(s(q,k_+)&#x2F;\tau)+\sum_{i&#x3D;1}^K\exp(s(q,k_i)&#x2F;\tau)}$,τ是一个温度参数。这种损失鼓励正样本取得高分，负样本取得低分。这种损失也有另一种含义，就是通过查询在所有负样本中尝试取出正样本。</p>
+<h3 id="从单个文档中构建正对"><a href="#从单个文档中构建正对" class="headerlink" title="从单个文档中构建正对"></a>从单个文档中构建正对</h3><p>反完形填空（Inverse Cloze Task），完型填空任务是根据上下文预测给定位置文本，而反向完型填空是根据给定文本预测上下文。</p>
+<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1>
     </div>
     
     
