@@ -179,12 +179,12 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #03a9f4">阅读</a>
+                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #00bcd4">阅读</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2/" style="color: #00bcd4">信息检索</a>
+                <a href="/tags/%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2/" style="color: #00a596">信息检索</a>
             </span>
             
         </span>
@@ -201,6 +201,7 @@
 <h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>用一个Transformer架构的编码器同时对query和doc分别进行编码，最后一层取平均，然后点积求相似性。<br>$$s(q,d)&#x3D;\langle f_\theta(q),f_\theta(d)\rangle $$<br>如果对query和doc分别设计不同的编码器进行编码，可能会降低零样本和少样本情况下的鲁棒性。</p>
 <h2 id="在未标注的文档上进行无监督学习"><a href="#在未标注的文档上进行无监督学习" class="headerlink" title="在未标注的文档上进行无监督学习"></a>在未标注的文档上进行无监督学习</h2><h3 id="对比学习"><a href="#对比学习" class="headerlink" title="对比学习"></a>对比学习</h3><p>对比学习是基于每个文档都是独一无二的事实来实现的。对比损失通常是通过对文件进行区分来学习。这种损失比较正样本对（来自同一个文档）或者负样本对（来自不同文档）的文件表示。<br>给定一个查询q，一个与q相关的正样本文档k<del>+</del>，一个负文档池，contrastive InfoNCE loss被定义为$\mathcal{L}(q,k_+)&#x3D;-\frac{\exp(s(q,k_+)&#x2F;\tau)}{\exp(s(q,k_+)&#x2F;\tau)+\sum_{i&#x3D;1}^K\exp(s(q,k_i)&#x2F;\tau)}$,τ是一个温度参数。这种损失鼓励正样本取得高分，负样本取得低分。这种损失也有另一种含义，就是通过查询在所有负样本中尝试取出正样本。</p>
 <h3 id="从单个文档中构建正对"><a href="#从单个文档中构建正对" class="headerlink" title="从单个文档中构建正对"></a>从单个文档中构建正对</h3><p>反完形填空（Inverse Cloze Task），完型填空任务是根据上下文预测给定位置文本，而反向完型填空是根据给定文本预测上下文。</p>
+<h3 id="构建大量的负样本对"><a href="#构建大量的负样本对" class="headerlink" title="构建大量的负样本对"></a>构建大量的负样本对</h3><p>第一种方法是使用同一批次的其他示例来生成负样本</p>
 <h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1>
     </div>
     
