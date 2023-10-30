@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>FACTIFY-5WQA: 5W Aspect-based Fact Verification through Question Answering 阅读笔记 | Hedarko小窝</title>
+    <meta name="author" content="Hedarko" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading2.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEDARKO小窝</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEDARKO小窝</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>FACTIFY-5WQA: 5W Aspect-based Fact Verification through Question Answering 阅读笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/26
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%AE%BA%E6%96%87/" style="color: #00bcd4">论文</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E9%98%85%E8%AF%BB/" style="color: #ffa2c4">阅读</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E4%BA%8B%E5%AE%9E%E9%AA%8C%E8%AF%81/" style="color: #00bcd4">事实验证</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="color: #ffa2c4">数据集</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>Factify5wqa:通过问答基于5w方面的事实验证</p>
+<h1 id="作者和出处"><a href="#作者和出处" class="headerlink" title="作者和出处"></a>作者和出处</h1><p>University of South Carolina, USA（美国南卡罗来纳大学）</p>
+<span id="more"></span>
+
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p> 近年来，自动事实核查受到了广泛关注。现代自动事实核查系统主要通过估算可信度来衡量真实性，但这些数值评分不易于理解。与人一样，人类事实核查员通常遵循几个逻辑步骤来验证一个似真主张的真实性，并得出它是真实的还是伪装的结论。流行的事实核查网站对事实分类采用了一种常见的结构，如半真、半假、假、夸张等。因此，有必要建立一个基于方面的可解释系统（指出哪些部分是真实的，哪些部分是错误的），以帮助人类事实核查员提出与事实相关的问题，然后分别验证这些问题以得出最终结论。<br>在本文中，我们提出了一个基于问题的五 W（谁，什么，何时，哪里，为什么）框架，用于解释事实。为了实现这一目标，我们创建了一个名为 FACTIFY-5WQA 的半自动生成数据集，其中包含 391,041 个事实以及相关的 5W 问题解答，这是本文的主要贡献。我们利用语义角色标注系统定位 5W，通过遮罩语言模型生成主张的 QA 对。<b>之后，我们报告了一个基线 QA 系统，用于从证据文档中自动查找答案，可作为未来该领域研究的基础。</b>最后，我们提出了一种健壮的事实验证系统，该系统接受改写的主张并自动验证它们。数据集和基线模型可在此处获取：<a target="_blank" rel="noopener" href="https://github.com/ankuranii/acl-5W-QA">https://github.com/ankuranii/acl-5W-QA</a></p>
+<h1 id="引言和结论"><a href="#引言和结论" class="headerlink" title="引言和结论"></a>引言和结论</h1><p>社区意识到，由于事实核查的复杂性，它可能无法完全自动化。人机协同是解决这个问题的方法。提出的基于 5W 问题的 fact verification 可能是人类事实核查员的最佳助手。据我们所知，我们是第一个引入基于 5W 问题的 fact verification，并额外提出了相关技术，利用自动方法自动生成 QA，可以立即用于现场的任何新主张。此外，QA 验证部分可以提供证据支持。主张的改写提供了一种全面的事实核查方法。生成的数据集和资源将用于研究目的，包含 391 万项主张。</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="数据来源和编篡"><a href="#数据来源和编篡" class="headerlink" title="数据来源和编篡"></a>数据来源和编篡</h2><p>数据只使用英文。</p>
+<h2 id="对文本声明进行转述"><a href="#对文本声明进行转述" class="headerlink" title="对文本声明进行转述"></a>对文本声明进行转述</h2><p>不同的新闻出版社的写作风格不同，因此需要转述，将这种不同抹除，以确保开发出基准的健壮性。对不同模型的转述的评估，使用如下三个标准：转述次数，正确度，多样性。候选模型为：Pegasus， T5-Large， GPT-3（text-davinci-003）.</p>
+<h3 id="转述次数"><a href="#转述次数" class="headerlink" title="转述次数"></a>转述次数</h3><p>对于一个候选转述，如果一个转述和声明的MED（最小编辑距离，单位是词）大于 ±2 ，则认为它是一个转述，否则舍弃它。用这种方式评估三个模型中哪个模型生成的转述次数最多。</p>
+<h3 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h3><p>用 SNLI 的 SOTA 模型对生成的转述进行评测，留下被标记为蕴含的转述。</p>
+<h3 id="多样性"><a href="#多样性" class="headerlink" title="多样性"></a>多样性</h3><p>在{声明, 转述}集合中，评测两两之间的相异性，最后取平均。相异性用 BLEU 的倒数来代指。</p>
+<img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231026100231.png"/>
+
+<p>以上实验证明，GPT-3 的效果最好（最大化的语言差异）。</p>
+<h2 id="5w-语义角色标注（SRL）"><a href="#5w-语义角色标注（SRL）" class="headerlink" title="5w 语义角色标注（SRL）"></a>5w 语义角色标注（SRL）</h2><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231026101359.png"/>
+
+<img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231026102152.png"/>
+
+<p>5W(什么，时间， 哪儿， 为什么， 谁) 通常被用来指代为了充分理解一句话所要回答的问题。SRL任务对句子中单词和短语的<b>角色标注可以被看作</b>是来对5W问题做出<b>回答</b>的一种方式。</p>
+<h3 id="对5W语义角色标注的人类评估"><a href="#对5W语义角色标注的人类评估" class="headerlink" title="对5W语义角色标注的人类评估"></a>对5W语义角色标注的人类评估</h3><p>对数据集中的部分数据进行人工标注，结果如下。</p>
+<img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231026103327.png"/>
+
+<h2 id="基于5w方面的问题对生成"><a href="#基于5w方面的问题对生成" class="headerlink" title="基于5w方面的问题对生成"></a>基于5w方面的问题对生成</h2><p>虚假的声明中也会存在一些事实。事实上，大多数假新闻很难被精确检测，因为他们大多是基于正确信息，只是再几个方面偏离了事实。换句话说，声明中的错误信息来自非常具体的不准确的陈述。所以对给定的文本声明，我们通过对给定声明进行语义标注来生成5w问答对。任务现在以生成的问答对为基础。事实验证系统可以提取证据来证实或驳斥声明，这种验证基于问题(什么，时间， 哪儿， 为什么， 谁)。<br><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231030102606.png"/><br>用 5W SRL 来生成 QA 对，然后分别验证每个方面，这样就可以精确的识别给定声明中哪一个部分是错误的。<br><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231030102946.png"/><br>对 5W 问题生成任务，作者使用两个模型做实验：(i) BART (Lewis et al., 2019), and (ii) ProphetNet (Qi et al., 2020) 。发现 ProphetNet 的效果更好。</p>
+<h3 id="人类对-QA-生成的评估"><a href="#人类对-QA-生成的评估" class="headerlink" title="人类对 QA 生成的评估"></a>人类对 QA 生成的评估</h3><p>随机采样3000组数据，人类评估三个方面：句法是否正确，语义是否正确，抽取的答案是否正确。<br><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231030145515.png"/></p>
+<h2 id="5w-问答验证系统"><a href="#5w-问答验证系统" class="headerlink" title="5w 问答验证系统"></a>5w 问答验证系统</h2><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231030145948.png"/>
+使用 SOTA 问答模型（T5-3B）回答问题。测试了三个模型 T5-3B (Raffel et al., 2020), T5Large (Raffel et al., 2020), and Bert-Large (Devlin et al., 2018)。
+
+<h2 id="挑选最佳的-5w-问题生成模型和-5w问题验证模型"><a href="#挑选最佳的-5w-问题生成模型和-5w问题验证模型" class="headerlink" title="挑选最佳的 5w 问题生成模型和 5w问题验证模型"></a>挑选最佳的 5w 问题生成模型和 5w问题验证模型</h2><p>两个系统成对测试，最终发现最佳组合是T5-3B 和 ProphetNet。<br><img src="https://cdn.jsdelivr.net/gh/hedarko20/picture@main/pic_note/20231030150515.png"/></p>
+<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>工作量真的很大。</p>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2023 - 2023 Hedarko小窝
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Hedarko
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="hedarko20/hedarko20.github.io"
+    data-repo-id="R_kgDOKdaIlg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOKdaIls4CZ9QH"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
+    
+</body>
+</html>
+
+<script src="/js/<file>"></script>
+<link rel="stylesheet" href="/css/<file>" />
+
+<canvas
+    id="background"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1"
+></canvas>
+<script src="/js/background.min.js"></script>
+
